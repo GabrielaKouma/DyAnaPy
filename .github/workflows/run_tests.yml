@@ -35,6 +35,9 @@ jobs:
           pip install pytest
           pip install -r requirements.txt
 
+      - name: Install test module
+        run: pip install pytest
+
       - name: Run test file
         run: |
-          python analysis/systracer.py
+          pytest tests/test_tracer.py
