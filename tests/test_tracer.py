@@ -31,4 +31,4 @@ def test_tracer():
         except Exception as e:
             print(e)
     print("start traces")
-    pass
+    print("end test")
