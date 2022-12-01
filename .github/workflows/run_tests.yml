@@ -40,4 +40,4 @@ jobs:
 
       - name: Run test file
         run: |
-          pytest tests/test_tracer.py
+          python tests/test_tracer.py
