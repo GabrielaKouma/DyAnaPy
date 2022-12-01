@@ -37,3 +37,5 @@ def test_tracer():
                 print(e)
     print("start traces")
     print("end test")
+
+test_tracer()
