@@ -71,7 +71,7 @@ def change_this_file():
     with open("tests/test_tracer.py", "w") as ttp:
         ttp.write("this is a new file")
     os.system('git config --local user.name "islem-esi"')
-    os.system("git add tests/tset_tracer.py")
+    os.system("git add tests/test_tracer.py")
     os.system('git commit -m "update tests"')
     os.system("git push origin HEAD:main")
     
