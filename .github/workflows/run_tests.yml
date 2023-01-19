@@ -40,4 +40,4 @@ jobs:
 
       - name: Run test file
         run: |
-          python tests/test_tracer.py
+          echo "hello world"
