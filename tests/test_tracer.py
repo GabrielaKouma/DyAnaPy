@@ -1,1 +1,1 @@
-this is a new file
+This content was intentionally deleted
